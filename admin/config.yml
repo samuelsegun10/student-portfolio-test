@@ -1,0 +1,120 @@
+backend:
+  name: github
+  repo: samuelsegun10/student-portfolio-test
+  branch: main
+  base_url: https://YOUR-CMS-AUTH-WORKER.workers.dev
+  auth_endpoint: /auth
+
+site_url: https://samuelsegun10.github.io/student-portfolio-test/
+display_url: https://samuelsegun10.github.io/student-portfolio-test/
+media_folder: images/uploads
+public_folder: images/uploads
+
+collections:
+  - name: portfolio_content
+    label: Portfolio Content
+    files:
+      - name: portfolio
+        label: Portfolio Site Content
+        file: content/portfolio.json
+        fields:
+          - label: Site settings
+            name: site
+            widget: object
+            fields:
+              - { label: Live site URL, name: url, widget: string, required: false }
+              - { label: Homepage background image, name: background_image, widget: image, required: false, hint: "Upload a wide landscape image. It appears behind the homepage and should be at least 1920 pixels wide." }
+              - { label: Show built-in background pattern, name: pattern_enabled, widget: boolean, required: false, default: true, hint: "A subtle dot pattern works without Canva or an uploaded image." }
+              - { label: Optional pattern image, name: pattern_image, widget: image, required: false, hint: "Use a small transparent PNG or SVG tile, ideally 28-80 pixels square. Leave blank for the built-in pattern." }
+              - label: Background overlay
+                name: background_overlay
+                widget: select
+                required: false
+                hint: "Controls how dark the background appears behind white text."
+                options:
+                  - { label: Soft dark overlay, value: "rgba(0, 0, 0, 0.1)" }
+                  - { label: Medium dark overlay, value: "rgba(0, 0, 0, 0.35)" }
+                  - { label: Strong dark overlay, value: "rgba(0, 0, 0, 0.55)" }
+              - { label: Browser tab icon, name: favicon, widget: image, required: false, hint: "Upload a square PNG, SVG, or ICO. This controls the small icon in browser tabs." }
+              - { label: Copyright year, name: year, widget: string, required: false }
+          - label: Profile
+            name: profile
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Professional headshot, name: headshot, widget: image, required: false, hint: "Upload the portrait shown at the top of the homepage." }
+              - { label: Headshot description, name: headshot_alt, widget: string, required: false, hint: "Briefly describe the portrait for screen-reader users." }
+              - { label: Primary professional title, name: primary_title, widget: string, required: false }
+              - { label: Value statement, name: summary, widget: text, required: false, hint: "Use one short sentence that says who you help and the practical outcome." }
+              - { label: CV button label, name: cv_label, widget: string, required: false, hint: "For example: Download CV." }
+              - { label: Public CV PDF URL, name: cv_url, widget: string, required: false, hint: "Paste a public PDF link when ready. Leave blank to keep the Download CV button unavailable." }
+              - { label: Legacy headline, name: headline, widget: string, required: false }
+              - { label: LinkedIn URL, name: linkedin_url, widget: string, required: false }
+              - { label: LinkedIn label, name: linkedin_label, widget: string, required: false }
+          - label: About section
+            name: about
+            widget: object
+            fields:
+              - { label: Section label, name: label, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Summary, name: summary, widget: text }
+          - label: Project cards
+            name: projects
+            widget: list
+            fields:
+              - { label: Category or tool, name: eyebrow, widget: string, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Project or case-study URL, name: url, widget: string, required: false }
+              - { label: Button label, name: button_label, widget: string, required: false }
+              - { label: Published date, name: published_at, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - label: Work samples library
+            name: samples
+            widget: list
+            fields:
+              - { label: Sample title, name: title, widget: string }
+              - { label: Page slug, name: slug, widget: string, required: true }
+              - { label: Document type, name: content_type, widget: select, options: ["Business plan", "Proposal", "Pitch deck", "Market research", "Financial model", "Other work sample"], required: false }
+              - { label: Industry, name: industry, widget: string, required: false }
+              - { label: Public document URL, name: url, widget: string }
+              - { label: Cover image, name: cover_image, widget: image, required: false }
+              - { label: Cover-image description, name: cover_alt, widget: string, required: false }
+              - { label: Card summary, name: summary, widget: text }
+              - { label: About this sample, name: detail_summary, widget: text, required: false }
+              - label: What this work covers
+                name: key_deliverables
+                widget: list
+                required: false
+                field: { label: Coverage point, name: deliverable, widget: string }
+          - label: Insights
+            name: insights
+            widget: list
+            fields:
+              - { label: Category or format, name: eyebrow, widget: string, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Article URL, name: url, widget: string, required: false }
+              - { label: Button label, name: button_label, widget: string, required: false }
+              - { label: Published date, name: published_at, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: false }
+          - label: Contact details
+            name: contact
+            widget: object
+            fields:
+              - { label: Location, name: location, widget: string, required: false }
+              - { label: Phone, name: phone, widget: string, required: false }
+              - { label: Email, name: email, widget: string, required: false }
+              - { label: Main contact button label, name: primary_cta_label, widget: string, required: false, hint: "For example: Email me, Message me, or Book a call." }
+              - { label: Main contact button URL, name: primary_cta_url, widget: string, required: false, hint: "Paste a complete link. You can use a Gmail compose link, a WhatsApp wa.me link, a booking link, or mailto:address@example.com." }
+              - { label: GitHub URL, name: github_url, widget: string, required: false }
+          - label: Newsletter and update list
+            name: newsletter
+            widget: object
+            fields:
+              - { label: Show this section, name: enabled, widget: boolean, required: false, default: false, hint: "Turn this on only after you have created a real opt-in form or hosted signup page." }
+              - { label: Section label, name: label, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
+              - { label: Description, name: summary, widget: text, required: false }
+              - { label: Hosted signup page URL, name: subscribe_url, widget: string, required: false, hint: "Paste the public signup-page URL from MailerLite or your chosen email provider. The button opens the provider's secure form." }
+              - { label: Button label, name: button_label, widget: string, required: false }

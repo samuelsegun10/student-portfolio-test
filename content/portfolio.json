@@ -1,0 +1,47 @@
+{
+  "site": {
+    "url": "https://samuelsegun10.github.io/student-portfolio-test/",
+    "background_image": "",
+    "pattern_enabled": true,
+    "pattern_image": "",
+    "background_overlay": "rgba(0, 0, 0, 0.35)",
+    "year": "2026",
+    "favicon": "assets/favicon.svg"
+  },
+  "profile": {
+    "name": "Your Name",
+    "primary_title": "Your Professional Title",
+    "headline": "Your Professional Title",
+    "summary": "I turn questions into clear, evidence-based insights and practical next steps.",
+    "cv_label": "Download CV",
+    "cv_url": "",
+    "linkedin_url": "",
+    "linkedin_label": "LinkedIn",
+    "headshot": "images/project-placeholder.svg",
+    "headshot_alt": "Professional headshot of Your Name"
+  },
+  "about": {
+    "label": "About Me",
+    "heading": "Work built to show how I think.",
+    "summary": "Use this space to explain the problems you enjoy solving, the evidence behind your work, and the outcomes you help create."
+  },
+  "projects": [],
+  "samples": [],
+  "insights": [],
+  "contact": {
+    "location": "City, Country",
+    "phone": "",
+    "email": "your.email@example.com",
+    "primary_cta_label": "Email me",
+    "primary_cta_url": "mailto:your.email@example.com?subject=Portfolio%20enquiry",
+    "github_url": "https://github.com/samuelsegun10"
+  },
+  "newsletter": {
+    "enabled": false,
+    "label": "Portfolio updates",
+    "heading": "Get updates when new work is published.",
+    "summary": "Join the email list for new projects, work samples, and practical resources.",
+    "subscribe_url": "",
+    "button_label": "Join the update list"
+  }
+}
